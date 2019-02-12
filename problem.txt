@@ -1,0 +1,21 @@
+@ This is a Test Edit @
+
+1. Start mysql service
+
+2. Login to mysql using root
+
+3. execute the sql file:
+source /home/hduser/custpayments_ORIG.sql
+
+4. Write sqoop command to import data from customers and products table with 2 mappers, with enclosed by "  (As we have ',' in the data itself we are importing in sqoop using enclosed by option).
+
+5. Create a hive external table and load the sqoop imported data to the hive table called custmaster. As we have ',' in the data itself we are using quotedchar option below with the csv serde option as given below as example, create the table with all columns.
+
+6. Create a flume netcat source agent and paste the payments data continuously into the netcat port and get it into hdfs location /user/hduser/paymentsdata/
+
+7. Create an external table to point the flume imported payments data location /user/hduser/paymentsdata/.
+
+8. Create another external table called cust_payments in avro format and join the above 2 tables and load using insert select option.
+
+9. Create a view called custpayments_vw to only display customernumber,concatenated contactfirst and contactlastname,creditlimit, amount.
+
